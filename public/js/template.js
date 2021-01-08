@@ -2078,3 +2078,7 @@ return sweetAlert;
 
 })));
 if (typeof window !== 'undefined' && window.Sweetalert2) window.sweetAlert = window.swal = window.Sweetalert2;
+
+$(document).ready( function () {
+    $('#myTable').DataTable();
+} );

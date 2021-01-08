@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/css/template.css">
+    <link rel="stylesheet" href="cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
     <title>test</title>
 </head>
 <body>

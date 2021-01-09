@@ -26,7 +26,6 @@ mix.styles(
             "resources/assets/js/popper.min.js",
             "resources/assets/js/bootstrap.min.js",
             "resources/assets/js/sweetalert2.all.js",
-            "resources/assets/js/function.js",
         ],
         "public/js/template.js"
     )

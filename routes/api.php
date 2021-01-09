@@ -26,7 +26,7 @@ Route::get('/category/list',[categoryController::class ,"list"]);
 Route::get('/category/getCategory',[categoryController::class ,"getCategory"]);
 Route::post('/category/save',[categoryController::class ,"store"]);
 Route::put('/category/update',[categoryController::class ,"update"] );
-Route::delete('/category/delete',[categoryController::class ,"delete"]);
+Route::get('/category/delete/{id}',[categoryController::class ,"delete"]);
 // CRUD PRODUCTS ----------------------------------------------------------------
 Route::get('/product/list',[productController::class ,"list"]);
 Route::get('/product/getProduct', [productController::class ,"getProduct"]);

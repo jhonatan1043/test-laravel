@@ -30,7 +30,7 @@ class categoryController extends Controller
        $category->save();
     }
 
-    public function delete(Request $request){
-
+    public function delete($id){
+        category::where('id_category', $id)->delete();
     }
 }

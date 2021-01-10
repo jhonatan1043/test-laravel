@@ -41,7 +41,7 @@
                           </a>
                         </li>
                         <li class="nav-item @if($current == 3) active @endif">
-                            <a class="nav-link" href="/locations">Ubicaciòn
+                            <a class="nav-link" href="/locations">Ubicaciones
                               @if($current == 3)
                               <span class="sr-only">(current)</span>
                               @endif

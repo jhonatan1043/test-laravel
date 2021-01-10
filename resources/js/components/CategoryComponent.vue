@@ -20,7 +20,7 @@
         <button type="button" class="btn btn-primary" @click="updateCategory()" v-else>
           Actualizar
         </button>
-        <button type="button" class="btn btn-warning" @click="cancelCategory(this)">
+        <button type="button" class="btn btn-warning" @click="cancelCategory()">
           Cancelar
         </button>
       </template>

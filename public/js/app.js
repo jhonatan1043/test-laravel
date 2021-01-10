@@ -37893,15 +37893,15 @@ var render = function() {
                     }
                   }
                 },
-                [_vm._v("Nuevo")]
+                [_vm._v("\n        Nuevo\n      ")]
               ),
               _vm._v(" "),
               _c("hr"),
               _vm._v(" "),
-              _c("div", { staticClass: "table table-resposive" }, [
+              _c("div", { staticClass: "table table-responsive" }, [
                 _c(
                   "table",
-                  { staticClass: "table table-bordered table-sm table-hove" },
+                  { staticClass: "table table-sm table-bordered table-hover" },
                   [
                     _vm._m(1),
                     _vm._v(" "),
@@ -37921,7 +37921,11 @@ var render = function() {
                                   }
                                 }
                               },
-                              [_vm._v("Editar")]
+                              [
+                                _vm._v(
+                                  "\n                  Editar\n                "
+                                )
+                              ]
                             ),
                             _vm._v(" "),
                             _c(
@@ -37973,9 +37977,11 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("thead", [
-      _c("th", { attrs: { width: "200" } }, [_vm._v("Opciones")]),
-      _vm._v(" "),
-      _c("th", { staticClass: "text-center" }, [_vm._v("Categoria")])
+      _c("tr", [
+        _c("th", { attrs: { width: "200" } }, [_vm._v("Opciones")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-center" }, [_vm._v("Categoria")])
+      ])
     ])
   }
 ]
@@ -38126,7 +38132,10 @@ var render = function() {
               _c("div", { staticClass: "table table-resposive" }, [
                 _c(
                   "table",
-                  { staticClass: "table table-bordered table-sm table-hove" },
+                  {
+                    staticClass: "table table-bordered table-sm table-hove",
+                    attrs: { id: "table_id" }
+                  },
                   [
                     _vm._m(1),
                     _vm._v(" "),
@@ -38387,7 +38396,10 @@ var render = function() {
               _c("div", { staticClass: "table table-resposive" }, [
                 _c(
                   "table",
-                  { staticClass: "table table-bordered table-sm table-hove" },
+                  {
+                    staticClass: "table table-bordered table-sm table-hove",
+                    attrs: { id: "table_id" }
+                  },
                   [
                     _vm._m(1),
                     _vm._v(" "),
@@ -50635,12 +50647,17 @@ module.exports = function(module) {
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
   \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+
 Vue.component('category-component', __webpack_require__(/*! ./components/CategoryComponent.vue */ "./resources/js/components/CategoryComponent.vue")["default"]);
 Vue.component('product-component', __webpack_require__(/*! ./components/ProductComponent.vue */ "./resources/js/components/ProductComponent.vue")["default"]);
 Vue.component('location-component', __webpack_require__(/*! ./components/LocationComponent.vue */ "./resources/js/components/LocationComponent.vue")["default"]);

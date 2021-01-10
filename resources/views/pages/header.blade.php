@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/css/template.css">
+    <link rel="stylesheet" href="/DataTables/css/dataTables.bootstrap4.min.css">
     <title>Test</title>
 </head>
 <body>
@@ -26,27 +27,33 @@
                             @endif
                           </a>
                         </li>
-                        <li class="nav-item @if($current == 1) active @endif">
-                          <a class="nav-link" href="/categories">Categorias
-                            @if($current == 1)
-                            <span class="sr-only">(current)</span>
-                            @endif
+                        <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" 
+                             href="#mProducts" id="navbarDropdown" 
+                             role="button" 
+                             data-toggle="dropdown" 
+                             aria-haspopup="true" 
+                             aria-expanded="false">
+                            Modulo Producto
                           </a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="mProducts">
+                            <a class="dropdown-item" href="/products">Productos</a>
+                            <a class="dropdown-item" href="/categories">Categorias</a>
+                          </div>
                         </li>
-                        <li class="nav-item @if($current == 2) active @endif">
-                          <a class="nav-link" href="/products">Productos
-                            @if($current == 2)
-                            <span class="sr-only">(current)</span>
-                            @endif
+                        <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" 
+                              href="#mLocation" id="navbarDropdown" 
+                              role="button" 
+                              data-toggle="dropdown" 
+                              aria-haspopup="true" 
+                              aria-expanded="false">
+                            Modulo ventas
                           </a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="mLocation">
+                            <a class="dropdown-item" href="/locations">Ubicaciones</a>
+                          </div>
                         </li>
-                        <li class="nav-item @if($current == 3) active @endif">
-                            <a class="nav-link" href="/locations">Ubicaciones
-                              @if($current == 3)
-                              <span class="sr-only">(current)</span>
-                              @endif
-                            </a>
-                          </li>
                       </ul>
                     </div>
                   </nav>

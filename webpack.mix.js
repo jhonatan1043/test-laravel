@@ -17,15 +17,17 @@ mix.styles(
         "resources/assets/css/simple-line-icons.min.css",
         "resources/assets/css/style.css",
         "resources/assets/css/bootstrap.min.css",
+        "resources/assets/css/datatables.min.css",
     ],
     "public/css/template.css"
 )
     mix.scripts(
         [
-            "resources/assets/js/jquery.min.js",
             "resources/assets/js/popper.min.js",
             "resources/assets/js/bootstrap.min.js",
             "resources/assets/js/sweetalert2.all.js",
+            "resources/assets/js/datatables.min.js",
+            "resources/assets/js/General.js",
         ],
         "public/js/template.js"
     )

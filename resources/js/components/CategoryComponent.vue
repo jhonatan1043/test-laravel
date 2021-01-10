@@ -14,10 +14,20 @@
             v-model="name"
           />
         </div>
-        <button type="button" class="btn btn-primary" @click="saveCategory()" v-if="edit != 1">
+        <button
+          type="button"
+          class="btn btn-primary"
+          @click="saveCategory()"
+          v-if="edit != 1"
+        >
           Guardar
         </button>
-        <button type="button" class="btn btn-primary" @click="updateCategory()" v-else>
+        <button
+          type="button"
+          class="btn btn-primary"
+          @click="updateCategory()"
+          v-else
+        >
           Actualizar
         </button>
         <button type="button" class="btn btn-warning" @click="cancelCategory()">
@@ -25,19 +35,30 @@
         </button>
       </template>
       <template v-else>
-        <button type="button" class="btn btn-secondary" @click="newCetegory()">Nuevo</button>
+        <button type="button" class="btn btn-secondary" @click="newCetegory()">
+          Nuevo
+        </button>
         <hr />
-        <div class="table table-resposive">
-          <table class="table table-bordered table-sm table-hove">
+        <div class="table table-responsive">
+          <table class="table table-sm table-bordered table-hover">
             <thead>
-              <th width="200">Opciones</th>
-              <th class="text-center">Categoria</th>
+              <tr>
+                <th width="200">Opciones</th>
+                <th class="text-center">Categoria</th>
+              </tr>
             </thead>
             <tbody>
               <tr v-for="(item, index) in array" :key="index">
                 <td>
-                  <button type="button" class="btn btn-warning" @click="editCategory(item)">Editar</button>
-                  <button type="button"
+                  <button
+                    type="button"
+                    class="btn btn-warning"
+                    @click="editCategory(item)"
+                  >
+                    Editar
+                  </button>
+                  <button
+                    type="button"
                     class="btn btn-danger"
                     @click="deleteCategory(item.id_category)"
                   >

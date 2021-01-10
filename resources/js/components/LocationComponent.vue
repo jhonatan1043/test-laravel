@@ -49,7 +49,7 @@
         </button>
         <hr />
         <div class="table table-resposive">
-          <table class="table table-bordered table-sm table-hove">
+          <table id="table_id" class="table table-bordered table-sm table-hove">
             <thead>
               <th width="200" class="text-center">Opciones</th>
               <th width="500" class="text-center">Direcciòn</th>

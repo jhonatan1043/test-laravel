@@ -1,6 +1,7 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+import $ from 'jquery'
 
 Vue.component('category-component', require('./components/CategoryComponent.vue').default);
 Vue.component('product-component', require('./components/ProductComponent.vue').default);

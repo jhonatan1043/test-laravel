@@ -21,7 +21,7 @@
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                       <ul class="navbar-nav ">
                         <li class="nav-item @if($current == 0) active @endif">
-                          <a class="nav-link" href="/">Inicio 
+                          <a class="nav-link" href="/">Cronograma de ventas 
                             @if($current == 0)
                             <span class="sr-only">(current)</span>
                             @endif
@@ -37,8 +37,9 @@
                             Modulo Producto
                           </a>
                           <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="mProducts">
-                            <a class="dropdown-item" href="/products">Productos</a>
-                            <a class="dropdown-item" href="/categories">Categorias</a>
+                            <a class="dropdown-item" href="/products">Crear Productos</a>
+                            <a class="dropdown-item" href="/categories">Crear Categorias</a>
+                            <a class="dropdown-item" href="/ProductoCategoria">Asociar Productos a Categorias</a>
                           </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -51,7 +52,8 @@
                             Modulo ventas
                           </a>
                           <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="mLocation">
-                            <a class="dropdown-item" href="/locations">Ubicaciones</a>
+                            <a class="dropdown-item" href="/sales">Ventas</a>
+                            <a class="dropdown-item" href="/locations">Crear Ubicaciones</a>
                           </div>
                         </li>
                       </ul>

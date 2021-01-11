@@ -8,12 +8,7 @@
         <div class="row">
           <div class="form-group col-xl-6 col-xs-12">
             <label for="name">Nombre del Producto</label>
-            <input
-              type="text"
-              class="form-control"
-              id="name"
-              v-model="name"
-            />
+            <input type="text" class="form-control" id="name" v-model="name" />
           </div>
           <div class="form-group col-xl-6 col-xs-12">
             <label for="purchase_price">costo</label>
@@ -43,16 +38,36 @@
             />
           </div>
         </div>
-        <button type="button" class="btn btn-primary">Guardar</button>
-        <button type="button" class="btn btn-warning">Cancelar</button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          @click="saveProduct()"
+          v-if="edit != 1"
+        >
+          Guardar
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          @click="updateProduct()"
+          v-else
+        >
+          Actualizar
+        </button>
+        <button type="button" class="btn btn-warning" @click="cancelProduct()">
+          Cancelar
+        </button>
       </template>
       <template v-else>
-        <button class="btn btn-secondary">Nuevo</button>
+        <button type="button" class="btn btn-secondary" @click="newProduct()">
+          Nuevo
+        </button>
         <hr />
         <div class="table table-resposive">
-          <table id="table_id" class="table table-bordered table-sm table-hove">
+          <table class="table table-bordered table-sm table-hove">
             <thead>
-              <th class="text-center">Producto</th>
+              <th width="200" class="text-center">Opciones</th>
+              <th width="500" class="text-center">Producto</th>
               <th class="text-center">Costo</th>
               <th class="text-center">Gasto</th>
               <th class="text-center">Precio Venta</th>
@@ -60,8 +75,20 @@
             <tbody>
               <tr v-for="(item, index) in array" :key="index">
                 <td>
-                  <button class="btn btn-danger">Editar</button>
-                  <button class="btn btn-danger">Eliminar</button>
+                  <button
+                    type="button"
+                    class="btn btn-warning"
+                    @click="editProduct(item)"
+                  >
+                    Editar
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-danger"
+                    @click="deleteProduct(item.id_product)"
+                  >
+                    Eliminar
+                  </button>
                 </td>
                 <td v-text="item.name"></td>
                 <td v-text="item.purchase_price"></td>
@@ -76,18 +103,4 @@
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      view: 0,
-      name: "",
-      purchase_price: 0,
-      spending:0,
-      price_finished: 0,
-      array: [],
-    };
-  },
-  methods: {},
-};
-</script>
+<script defer src="../script/product.js"></script>

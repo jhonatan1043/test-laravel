@@ -4,47 +4,50 @@ export default {
     data() {
         return {
             view: 0,
-            idLocation: 0,
-            address: "",
-            responsible:"",
-            color: "",
+            idProduct: 0,
+            name: "",
+            purchase_price: 0,
+            spending: 0,
+            price_finished: 0,
             edit: 0,
             array: [],
         };
     },
     methods: {
 
-        newLocation() {
+        newProduct() {
             functionGeneral.new(this);
         },
 
-        cancelLocation() {
+        cancelProduct() {
             functionGeneral.cancel(this);
         },
 
-        editLocation(array) {
+        editProduct(array) {
             functionGeneral.edit(this);
             this.load(array);
         },
 
-        load(array) { 
-            this.idLocation = array.id_location;
-            this.address = array.address;
-            this.responsible = array.name_responsible;
-            this.color = array.color;
+        load(array) {
+            this.idProduct = array.id_product;
+            this.name = array.name;
+            this.purchase_price = array.purchase_price;
+            this.spending = array.spending;
+            this.price_finished = array.price_finished;
             this.edit = 1;
         },
 
         clean() {
-            this.address = "";
-            this.responsible = "";
-            this.color = "";
+            this.name = "";
+            this.purchase_price = 0;
+            this.spending = 0;
+            this.price_finished = 0;
             this.edit = 0;
         },
 
         list() {
             let me = this;
-            axios.get("api/location/list")
+            axios.get(" api/product/list")
                 .then(function (response) {
                     me.array = response.data;
                 })
@@ -53,13 +56,14 @@ export default {
                 })
         },
 
-        saveLocation() {
+        saveProduct() {
             let me = this;
-            if (me.address != ""|| me.responsible != "" ) {
-                axios.post("api/location/save", {
-                    address: me.address,
-                    name_responsible: me.responsible,
-                    color: me.color
+            if (me.name != "") {
+                axios.post("api/product/save", {
+                    name: me.name,
+                    purchase_price : me.purchase_price,
+                    spending : me.spending,
+                    price_finished : me.price_finished
                 })
                     .then(() => {
                         functionGeneral.hide(this);
@@ -69,18 +73,19 @@ export default {
                         console.log(error.message);
                     })
             } else {
-                alert('todos los datos son obrigatorio')
+                alert('no hay datos para guardar')
             }
         },
 
-        updateLocation() {
+        updateProduct() {
             let me = this;
-            if (me.address != ""|| me.responsible != "" ) {
-                axios.put("api/location/update", {
-                    address: me.address,
-                    name_responsible: me.responsible,
-                    color: me.color,
-                    id: me.idLocation
+            if (me.name != "") {
+                axios.put("api/product/update", {
+                    name: me.name,
+                    purchase_price : me.purchase_price,
+                    spending : me.spending,
+                    price_finished : me.price_finished,
+                    id: me.idProduct
                 })
                     .then(() => {
                         functionGeneral.hide(this);
@@ -90,13 +95,13 @@ export default {
                         console.log(error.message);
                     })
             } else {
-                alert('todos los datos son obrigatorio')
+                alert('no hay datos para actualizar')
             }
         },
 
-        deleteLocation(idLocation) {
+        deleteProduct(idProduct) {
             let me = this;
-            axios.get("api/location/delete", idLocation)
+            axios.get("api/product/delete", idProduct)
                 .then(() => {
                     me.list();
                     alert('eliminado con exito');

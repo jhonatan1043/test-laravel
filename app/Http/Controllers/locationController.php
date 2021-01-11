@@ -21,6 +21,7 @@ class locationController extends Controller
        $location  = new location();
        $location->address  = $request->address;
        $location->name_responsible  = $request->name_responsible;
+       $location->color  = $request->color;
        $location->save();
     }
 
@@ -29,6 +30,7 @@ class locationController extends Controller
        $location  = location::findOrFail($request->id);
        $location->address  = $request->address;
        $location->name_responsible  = $request->name_responsible;
+       $location->color  = $request->color;
        $location->save();
     }
 

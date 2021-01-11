@@ -18,13 +18,23 @@ Route::get('/', function () {
 });
 
 Route::get('/categories', function(){
-    return view('categories',['current' => 1]);
+    return view('pages/categories',['current' => 1]);
 });
 
 Route::get('/products', function(){
-    return view('products',['current' => 2]);
+    return view('pages/products',['current' => 2]);
 });
 
 Route::get('/locations', function(){
-    return view('locations',['current' => 3]);
+    return view('pages/locations',['current' => 3]);
 });
+
+Route::get('/ProductoCategoria', function(){
+    return view('pages/ProductoCategoria',['current' => 4]);
+});
+
+Route::get('/sales', function(){
+    return view('pages/sales',['current' => 5]);
+});
+
+

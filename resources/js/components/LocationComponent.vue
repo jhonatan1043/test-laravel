@@ -5,23 +5,34 @@
     </div>
     <form>
       <template v-if="view == 1">
-        <div class="form-group">
-          <label for="address">Direcciòn</label>
-          <input
-            type="text"
-            class="form-control"
-            id="address"
-            v-model="address"
-          />
-        </div>
-        <div class="form-group">
-          <label for="address">Responsable</label>
-          <input
-            type="text"
-            class="form-control"
-            id="responsible"
-            v-model="responsible"
-          />
+        <div class="row">
+          <div class="form-group col-xs-12 col-xl-4">
+            <label for="address">Direcciòn</label>
+            <input
+              type="text"
+              class="form-control"
+              id="address"
+              v-model="address"
+            />
+          </div>
+          <div class="form-group col-xs-12 col-xl-4">
+            <label for="address">Responsable</label>
+            <input
+              type="text"
+              class="form-control"
+              id="responsible"
+              v-model="responsible"
+            />
+          </div>
+          <div class="form-group col-xs-12 col-xl-4 p-2">
+            <label for="address">Color</label>
+            <input
+              type="color"
+              class="form-control"
+              id="color"
+              v-model="color"
+            />
+          </div>
         </div>
         <button
           type="button"
@@ -73,7 +84,7 @@
                     Eliminar
                   </button>
                 </td>
-                 <td v-text="item.address"></td>
+                <td v-text="item.address"></td>
                 <td v-text="item.name_responsible"></td>
               </tr>
             </tbody>

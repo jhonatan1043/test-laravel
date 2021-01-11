@@ -17,6 +17,7 @@ class TableLocation extends Migration
             $table->increments("id_location");
             $table->string('address')->unique('address');
             $table->string('name_responsible');
+            $table->string('color',10);
             $table->timestamps();
         });
     }

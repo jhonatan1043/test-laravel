@@ -30,7 +30,10 @@ class categoryController extends Controller
        $category->save();
     }
 
-    public function delete($id){
-        category::where('id_category', $id)->delete();
+    public function delete(Request $request){
+
+        $category = category::find($request->id);
+        $category->delete();
+        return ['message' => 'delete Exit'];
     }
 }

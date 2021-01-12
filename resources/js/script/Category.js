@@ -1,4 +1,4 @@
-import functionGeneral from '../script/functionGeneral';
+import functionGeneral from "../script/functionGeneral";
 
 export default {
     data() {
@@ -7,11 +7,10 @@ export default {
             idCategory: 0,
             name: "",
             edit: 0,
-            array: [],
+            array: []
         };
     },
     methods: {
-
         newCetegory() {
             functionGeneral.new(this);
         },
@@ -38,65 +37,71 @@ export default {
 
         list() {
             let me = this;
-            axios.get("api/category/list")
-                .then(function (response) {
+            axios
+                .get("api/category/list")
+                .then(function(response) {
                     me.array = response.data;
                 })
-                .catch(function (error) {
+                .catch(function(error) {
                     console.log(error.message);
-                })
+                });
         },
 
         saveCategory() {
             let me = this;
             if (me.name != "") {
-                axios.post("api/category/save", {
-                    name: me.name
-                })
+                axios
+                    .post("api/category/save", {
+                        name: me.name
+                    })
                     .then(() => {
                         functionGeneral.hide(this);
                         me.list();
                     })
-                    .catch(function (error) {
+                    .catch(function(error) {
                         console.log(error.message);
-                    })
+                    });
             } else {
-                alert('no hay datos para guardar')
+                alert("no hay datos para guardar");
             }
         },
 
         updateCategory() {
             let me = this;
             if (me.name != "") {
-                axios.put("api/category/update", {
-                    name: me.name,
-                    id: me.idCategory
-                })
+                axios
+                    .put("api/category/update", {
+                        name: me.name,
+                        id: me.idCategory
+                    })
                     .then(() => {
                         functionGeneral.hide(this);
                         me.list();
                     })
-                    .catch(function (error) {
+                    .catch(function(error) {
                         console.log(error.message);
-                    })
+                    });
             } else {
-                alert('no hay datos para actualizar')
+                alert("no hay datos para actualizar");
             }
         },
 
         deleteCategory(idCategory) {
             let me = this;
-            axios.get("api/category/delete", idCategory)
+            axios
+                .delete("api/category/delete", {
+                    id: idCategory
+                })
                 .then(() => {
                     me.list();
-                    alert('eliminado con exito');
+                    alert("eliminado con exito");
                 })
-                .catch(function (error) {
+                .catch(function(error) {
                     console.log(error.message);
-                })
+                });
         }
     },
     created() {
         this.list();
-    },
+    }
 };

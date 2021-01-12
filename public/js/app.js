@@ -13844,7 +13844,7 @@ __webpack_require__.r(__webpack_exports__);
           console.log(error.message);
         });
       } else {
-        alert('no hay datos para guardar');
+        alert("no hay datos para guardar");
       }
     },
     updateCategory: function updateCategory() {
@@ -13863,14 +13863,16 @@ __webpack_require__.r(__webpack_exports__);
           console.log(error.message);
         });
       } else {
-        alert('no hay datos para actualizar');
+        alert("no hay datos para actualizar");
       }
     },
     deleteCategory: function deleteCategory(idCategory) {
       var me = this;
-      axios.get("api/category/delete", idCategory).then(function () {
+      axios["delete"]("api/category/delete", {
+        id: idCategory
+      }).then(function () {
         me.list();
-        alert('eliminado con exito');
+        alert("eliminado con exito");
       })["catch"](function (error) {
         console.log(error.message);
       });
@@ -14008,25 +14010,39 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      idProduct: 0,
       arrayCategories: [],
       arrayProduct: []
     };
   },
   methods: {
-    listCategory: function listCategory() {
-      var me = this;
-      axios.get("api/category/list").then(function (response) {
-        me.arrayCategories = response.data;
-      })["catch"](function (error) {
-        console.log(error.message);
-      });
-    },
     listProduct: function listProduct() {
       var me = this;
       axios.get("api/product/list").then(function (response) {
         me.arrayProduct = response.data;
       })["catch"](function (error) {
         console.log(error.message);
+      });
+    },
+    save: function save() {
+      var me = this;
+      axios.post("api/product/category/save", {
+        idProduct: me.idProduct,
+        arrayCategories: me.arrayCategories
+      }).then(function () {
+        alert("¡ Registrado con Exito !");
+      })["catch"](function (err) {
+        console.error(err);
+      });
+    },
+    listCategory: function listCategory() {
+      var me = this;
+      axios.get("api/product/category/get", {
+        idProduct: me.idProduct
+      }).then(function (res) {
+        me.arrayCategories = res.data;
+      })["catch"](function (err) {
+        console.error(err);
       });
     }
   },
@@ -51060,7 +51076,37 @@ var render = function() {
     _vm._v(" "),
     _c(
       "select",
-      { staticClass: "form-control" },
+      {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.idProduct,
+            expression: "idProduct"
+          }
+        ],
+        staticClass: "form-control",
+        on: {
+          change: [
+            function($event) {
+              var $$selectedVal = Array.prototype.filter
+                .call($event.target.options, function(o) {
+                  return o.selected
+                })
+                .map(function(o) {
+                  var val = "_value" in o ? o._value : o.value
+                  return val
+                })
+              _vm.idProduct = $event.target.multiple
+                ? $$selectedVal
+                : $$selectedVal[0]
+            },
+            function($event) {
+              return _vm.listCategory()
+            }
+          ]
+        }
+      },
       [
         _c("option", { attrs: { selected: "" }, domProps: { value: 0 } }, [
           _vm._v("Seleccione Producto")
@@ -51085,9 +51131,50 @@ var render = function() {
         return _c("div", { key: index }, [
           _c("div", { staticClass: "form-check" }, [
             _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: item.status,
+                  expression: "item.status"
+                }
+              ],
               staticClass: "form-check-input",
-              attrs: { type: "checkbox" },
-              domProps: { value: item.id_category }
+              attrs: {
+                type: "checkbox",
+                "true-value": "1",
+                "false-value": "0"
+              },
+              domProps: {
+                value: item.id_category,
+                checked: item.status == null ? 0 : 1,
+                checked: Array.isArray(item.status)
+                  ? _vm._i(item.status, item.id_category) > -1
+                  : _vm._q(item.status, "1")
+              },
+              on: {
+                change: function($event) {
+                  var $$a = item.status,
+                    $$el = $event.target,
+                    $$c = $$el.checked ? "1" : "0"
+                  if (Array.isArray($$a)) {
+                    var $$v = item.id_category,
+                      $$i = _vm._i($$a, $$v)
+                    if ($$el.checked) {
+                      $$i < 0 && _vm.$set(item, "status", $$a.concat([$$v]))
+                    } else {
+                      $$i > -1 &&
+                        _vm.$set(
+                          item,
+                          "status",
+                          $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                        )
+                    }
+                  } else {
+                    _vm.$set(item, "status", $$c)
+                  }
+                }
+              }
             }),
             _vm._v(" "),
             _c("label", { staticClass: "form-check-label" }, [
@@ -51103,8 +51190,16 @@ var render = function() {
     _vm._v(" "),
     _c(
       "button",
-      { staticClass: "btn btn-success", attrs: { type: "button" } },
-      [_vm._v("Registrar")]
+      {
+        staticClass: "btn btn-success",
+        attrs: { type: "button" },
+        on: {
+          click: function($event) {
+            return _vm.save()
+          }
+        }
+      },
+      [_vm._v("\n    Registrar\n  ")]
     )
   ])
 }
@@ -64444,7 +64539,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Poseidon\Desktop\test\test-laravel\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Programador 1\Desktop\laravel\test-laravel\resources\js\app.js */"./resources/js/app.js");
 
 
 /***/ })

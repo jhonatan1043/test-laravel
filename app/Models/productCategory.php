@@ -13,4 +13,5 @@ class productCategory extends Model
         'id_product',
         'id_category',
     ]; 
+    public $timestamps = false;
 }

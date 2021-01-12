@@ -48,5 +48,5 @@ Route::put('/sale/update', [saleController::class, "update"]);
 Route::delete('/sale/delete',[saleController::class, "delete"]);
 // PRODUCT CATEGORY ----------------------------------------------------------------
 Route::post('/product/category/save',[productCategoryController::class,"store"]);
-Route::get('/product/category/get',[productCategoryController::class,"get"]);
+Route::get('/product/category/get',[productCategoryController::class,"getProductCategory"]);
 

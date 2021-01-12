@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\categoryController;
 use App\Http\Controllers\productController;
 use App\Http\Controllers\locationController;
+use App\Http\Controllers\saleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,4 +40,10 @@ Route::get('/location/getLocation',[locationController::class ,"getLocation"]);
 Route::post('/location/save',[locationController::class ,"store"]);
 Route::put('/location/update',[locationController::class ,"update"]);
 Route::delete('/location/delete',[locationController::class ,"delete"]);
+// CRUD SALE ----------------------------------------------------------------------
+Route::get('/sale/list',[saleController::class, "list"]);
+Route::post('/sale/save',[saleController::class, "store"]);
+Route::put('/sale/update', [saleController::class, "update"]);
+Route::delete('/sale/delete',[saleController::class, "delete"]);
+
 

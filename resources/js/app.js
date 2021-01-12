@@ -10,7 +10,7 @@ Vue.component('product-component', require('./components/ProductComponent.vue').
 Vue.component('location-component', require('./components/LocationComponent.vue').default);
 Vue.component('productcategory-component', require('./components/ProductCategoryComponent.vue').default);
 Vue.component('cronograma-component', require('./components/CronogramaComponent.vue').default);
-
+Vue.component('sale-component', require('./components/SaleComponente.vue').default);
 
 const app = new Vue({
     el: '#app',  

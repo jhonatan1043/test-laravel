@@ -14,7 +14,7 @@
       ></option>
     </select>
     <hr />
-    <div class="card">
+    <div class="card p-2">
       <div v-for="(item, index) in arrayCategories" :key="index">
         <div class="form-check">
           <input

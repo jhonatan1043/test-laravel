@@ -6,7 +6,7 @@ export default {
             view: 0,
             idLocation: 0,
             address: "",
-            responsible:"",
+            responsible: "",
             color: "",
             edit: 0,
             array: [],
@@ -27,7 +27,7 @@ export default {
             this.load(array);
         },
 
-        load(array) { 
+        load(array) {
             this.idLocation = array.id_location;
             this.address = array.address;
             this.responsible = array.name_responsible;
@@ -55,7 +55,7 @@ export default {
 
         saveLocation() {
             let me = this;
-            if (me.address != ""|| me.responsible != "" ) {
+            if (me.address != "" || me.responsible != "") {
                 axios.post("api/location/save", {
                     address: me.address,
                     name_responsible: me.responsible,
@@ -75,7 +75,7 @@ export default {
 
         updateLocation() {
             let me = this;
-            if (me.address != ""|| me.responsible != "" ) {
+            if (me.address != "" || me.responsible != "") {
                 axios.put("api/location/update", {
                     address: me.address,
                     name_responsible: me.responsible,

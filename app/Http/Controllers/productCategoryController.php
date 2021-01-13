@@ -38,10 +38,9 @@ class productCategoryController extends Controller
 
   public function getProductCategory(Request $request){
 
-    return DB::table('categories')
-            ->select("categories.id_category","categories.name","product_category.id_category as status")
-            ->leftJoin('product_category', 'product_category.id_category', '=', 'categories.id_category')
-            ->where("product_category.id_product", [$request->idProduct])
-            ->get();
+    return DB::select("SELECT categories.id_category, categories.name, product_category.id_category as status
+                       FROM categories  
+                        LEFT JOIN product_category ON product_category.id_category = categories.id_category
+                         AND product_category.id_product = ?;",[$request->idProduct]);
   }
 }

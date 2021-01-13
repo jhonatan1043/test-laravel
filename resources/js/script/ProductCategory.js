@@ -11,10 +11,10 @@ export default {
             let me = this;
             axios
                 .get("api/product/list")
-                .then(function(response) {
+                .then(function (response) {
                     me.arrayProduct = response.data;
                 })
-                .catch(function(error) {
+                .catch(function (error) {
                     console.log(error.message);
                 });
         },
@@ -38,7 +38,9 @@ export default {
 
             axios
                 .get("api/product/category/get", {
-                    idProduct: me.idProduct
+                    params: {
+                        idProduct: me.idProduct
+                    }
                 })
                 .then(res => {
                     me.arrayCategories = res.data;

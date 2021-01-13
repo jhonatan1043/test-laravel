@@ -14038,7 +14038,9 @@ __webpack_require__.r(__webpack_exports__);
     listCategory: function listCategory() {
       var me = this;
       axios.get("api/product/category/get", {
-        idProduct: me.idProduct
+        params: {
+          idProduct: me.idProduct
+        }
       }).then(function (res) {
         me.arrayCategories = res.data;
       })["catch"](function (err) {
@@ -64539,7 +64541,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Programador 1\Desktop\laravel\test-laravel\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Poseidon\Desktop\test\test-laravel\resources\js\app.js */"./resources/js/app.js");
 
 
 /***/ })
